@@ -3,10 +3,128 @@
 @tailwind utilities;
 
 :root {
-  --background-rgb: 15, 23, 42;
+  --background-color-neutral: #0F172A;
+  --background-color-happy: #003C6E;
+  --background-color-sad: #1E1E1E;
+  --background-color-angry: #0A0A14;
+}
+
+.neutral {
+  --background-color: #0F172A;
+}
+
+.happy {
+  --background-color: #003C6E;
+}
+
+.sad {
+  --background-color: #1E1E1E;
+}
+
+.angry {
+  --background-color: #0A0A14;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  background-color: var(--background-color);
+}
+
+.color-sheme-neutral {
+  --background-rgb: #0F172A;
+  --header-rgb: #1E293B;
+  --text-rgb: #FFFFFF;
+  --primary-rgb: #0EA5E9;
+  --secondary-rgb: #334155;
+  --tertiary-rgb: #475569;
+}
+
+.color-sheme-happy {
+  --background-rgb: #003C6E;
+  --header-rgb: #005A96;
+  --text-rgb: #FFFFFF;
+  --primary-rgb: #00AAFF;
+  --secondary-rgb: 51, 65, 85;
+  --tertiary-rgb: 71, 85, 105;
+}
+
+.color-sheme-sad {
+  --background-rgb: #1E1E1E;
+  --header-rgb: #2D2D2D;
+  --text-rgb: #FFFFFF;
+  --primary-rgb: #6495ED;
+  --secondary-rgb: 51, 65, 85;
+  --tertiary-rgb: 71, 85, 105;
+}
+
+.color-sheme-angry {
+  --background-rgb: #0A0A14;
+  --header-rgb: #C8D7FF;
+  --text-rgb: #000000;
+  --primary-rgb: #0E79B2;
+  --secondary-rgb: 51, 65, 85;
+  --tertiary-rgb: 71, 85, 105;
+}
+
+.background-happy{
+  background: #003C6E;
+}
+
+.background-sad{
+  background: #1E1E1E;
+}
+
+.background-angry{
+  background: #0A0A14;
+}
+
+.background-neutral{
+  background: #0F172A;
+}
+
+.header-background-happy{
+  background: #005A96;
+}
+
+.header-background-sad{
+  background: #2D2D2D;
+}
+
+.header-background-angry{
+  background: #14141E;
+}
+
+.header-background-neutral{
+  background: #1E293B;
+}
+
+.primary-color-happy{
+  color: #00AAFF;
+}
+
+.primary-color-sad{
+  color: #6495ED;
+}
+
+.primary-color-angry{
+  color: #0E79B2;
+}
+
+.primary-color-neutral{
+  color: #0EA5E9;
+}
+
+.border-color-happy{
+  border-color: #00AAFF;
+}
+
+.border-color-sad{
+  border-color: #6495ED;
+}
+
+.border-color-angry{
+  border-color: #0E79B2;
+}
+
+.border-color-neutral{
+  border-color: #0EA5E9;
 }
