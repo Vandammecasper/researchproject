@@ -43,7 +43,7 @@ body {
   --header-rgb: #005A96;
   --text-rgb: #FFFFFF;
   --primary-rgb: #00AAFF;
-  --secondary-rgb: 51, 65, 85;
+  --secondary-rgb: #004985;
   --tertiary-rgb: 71, 85, 105;
 }
 
@@ -127,4 +127,36 @@ body {
 
 .border-color-neutral{
   border-color: #0EA5E9;
+}
+
+.secondary-color-neutral{
+  color: #334155;
+}
+
+.secondary-color-happy{
+  color: #005ba6;
+}
+
+.secondary-color-sad{
+  color: #273a5d;
+}
+
+.secondary-color-angry{
+  color: #0a4261;
+}
+
+.tertiary-color-neutral{
+  color: #475569;
+}
+
+.tertiary-color-happy{
+  color: #0083db;
+}
+
+.tertiary-color-sad{
+  color: #6d6d6d;
+}
+
+.tertiary-color-angry{
+  color: #215577;
 }

@@ -1,10 +1,13 @@
 'use client'
+import { useAtom } from 'jotai';
 import React, { useState } from 'react';
+import { moodAtom } from '../../../jodai';
 
 function Email() {
     const [tooltipText, setTooltipText] = useState('Click here to send me an email');
     const [copied, setCopied] = useState(false);
     const [tooltipVisible, setTooltipVisible] = useState(false);
+    const [mood, setMood] = useAtom(moodAtom)
 
     function copyToClipboard(text:any) {
         const el = document.createElement('textarea');
@@ -27,14 +30,14 @@ function Email() {
     }
   return (
     <a
-        className="xl:ml-20 lg:ml-20 ml-6 mt-6 w-80 3xl:w-7/12 bg-slate-800 py-2 px-4 rounded relative grid justify-items-start"
+        className={`xl:ml-20 lg:ml-20 ml-6 mt-6 w-80 3xl:w-7/12 header-background-${mood} py-2 px-4 rounded relative grid justify-items-start`}
         onClick={() => copyToClipboard('casper.van.damme@outlook.com')}
         onMouseEnter={() => setTooltipVisible(true)}
         onMouseLeave={() => setTooltipVisible(false)}
         href="mailto:caspervandamme03@gmail.com"
     >
-        <h4 className="text-slate-600 3xl:text-xl 3xl:mb-1">My e-mail address</h4>
-        <h3 className="text-sky-500 font-bold text-lg 3xl:text-2xl 3xl:mb-1">caspervandamme03@gmail.com</h3>
+        <h4 className={`tertiary-color-${mood} 3xl:text-xl 3xl:mb-1`}>My e-mail address</h4>
+        <h3 className={`primary-color-${mood} font-bold text-lg 3xl:text-2xl 3xl:mb-1`}>caspervandamme03@gmail.com</h3>
         <span
             className={`opacity-0 bg-black text-white text-center text-xs rounded-lg py-2 px-3 absolute bottom-7 left-1/2 transform -translate-x-1/2 pointer-events-none z-50 transition-opacity duration-150 ${tooltipVisible ? 'opacity-100' : ''}`}
         >

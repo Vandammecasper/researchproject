@@ -1,3 +1,3 @@
 import {atom} from 'jotai';
 
-export const moodAtom = atom('sad');
+export const moodAtom = atom('neutral');
