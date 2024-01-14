@@ -22,14 +22,14 @@ const Skill: React.FC<SkillProps> = ({ title, years }) => {
       {isHovering ? (
         <div
           onMouseEnter={handleHover}
-          className={`px-3.5 md:px-5 py-2 md:py-2.5 border-4 border-solid border-color-${mood} rounded-3xl h-12 md:h-14 text-white items-center mx-2 md:text-2xl mt-4`}
+          className={`px-3.5 md:px-5 py-2 md:py-2.5 border-4 border-solid border-color-${mood} border-radius-skills-${mood} h-12 md:h-14 text-color-${mood} items-center mx-2 md:text-2xl mt-4 font-${mood}`}
         >
           {title}
         </div>
       ) : (
         <div
           onMouseLeave={handleHover}
-          className={`px-3.5 md:px-5 py-2 md:py-2.5 border-4 border-solid border-color-${mood} rounded-3xl h-12 md:h-14 text-white items-center mx-2 md:text-2xl mt-4`}
+          className={`px-3.5 md:px-5 py-2 md:py-2.5 border-4 border-solid border-color-${mood} border-radius-skills-${mood} h-12 md:h-14 text-color-${mood} items-center mx-2 md:text-2xl mt-4 font-${mood}`}
         >
           {years}
         </div>

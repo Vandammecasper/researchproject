@@ -14,7 +14,7 @@
 }
 
 .happy {
-  --background-color: #003C6E;
+  --background-color: #FFFFFF;
 }
 
 .sad {
@@ -22,7 +22,7 @@
 }
 
 .angry {
-  --background-color: #0A0A14;
+  --background-color: #E0F7FA;
 }
 
 body {
@@ -65,24 +65,8 @@ body {
   --tertiary-rgb: 71, 85, 105;
 }
 
-.background-happy{
-  background: #003C6E;
-}
-
-.background-sad{
-  background: #1E1E1E;
-}
-
-.background-angry{
-  background: #0A0A14;
-}
-
-.background-neutral{
-  background: #0F172A;
-}
-
 .header-background-happy{
-  background: #005A96;
+  background: #3D52D5;
 }
 
 .header-background-sad{
@@ -90,15 +74,47 @@ body {
 }
 
 .header-background-angry{
-  background: #14141E;
+  background: #81D4FA;
 }
 
 .header-background-neutral{
   background: #1E293B;
 }
 
+.text-color-happy{
+  color: #333333;
+}
+
+.text-color-sad{
+  color: #FFFFFF;
+}
+
+.text-color-angry{
+  color: #455A64;
+}
+
+.text-color-neutral{
+  color: #FFFFFF;
+}
+
+.header-text-color-happy{
+  color: #FFFFFF;
+}
+
+.header-text-color-sad{
+  color: #FFFFFF;
+}
+
+.header-text-color-angry{
+  color: #455A64;
+}
+
+.header-text-color-neutral{
+  color: #FFFFFF;
+}
+
 .primary-color-happy{
-  color: #00AAFF;
+  color: #00BFFF;
 }
 
 .primary-color-sad{
@@ -106,7 +122,7 @@ body {
 }
 
 .primary-color-angry{
-  color: #0E79B2;
+  color: #64B5F6;
 }
 
 .primary-color-neutral{
@@ -114,7 +130,7 @@ body {
 }
 
 .border-color-happy{
-  border-color: #00AAFF;
+  border-color: #00BFFF;
 }
 
 .border-color-sad{
@@ -122,7 +138,7 @@ body {
 }
 
 .border-color-angry{
-  border-color: #0E79B2;
+  border-color: #64B5F6;
 }
 
 .border-color-neutral{
@@ -134,15 +150,15 @@ body {
 }
 
 .secondary-color-happy{
-  color: #005ba6;
+  color: #87CEEB;
 }
 
 .secondary-color-sad{
-  color: #273a5d;
+  color: #395385;
 }
 
 .secondary-color-angry{
-  color: #0a4261;
+  color: #B0BEC5;
 }
 
 .tertiary-color-neutral{
@@ -150,7 +166,7 @@ body {
 }
 
 .tertiary-color-happy{
-  color: #0083db;
+  color: #95a1e9;
 }
 
 .tertiary-color-sad{
@@ -158,5 +174,70 @@ body {
 }
 
 .tertiary-color-angry{
-  color: #215577;
+  color: #3c7e9c;
+}
+
+.border-radius-neutral{
+  border-radius: 0.75rem;
+}
+
+.border-radius-happy{
+  border-radius: 0.75rem;
+}
+
+.border-radius-sad{
+  border-radius: 0;
+}
+
+.border-radius-angry{
+  border-radius: 0;
+}
+
+.border-radius-skills-neutral{
+  border-radius: 1.5rem;
+}
+
+.border-radius-skills-happy{
+  border-radius: 1.5rem;
+}
+
+.border-radius-skills-sad{
+  border-radius: 0;
+}
+
+.border-radius-skills-angry{
+  border-radius: 0;
+}
+
+.font-neutral{
+  font-family: ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+.font-happy{
+  font-family: ui-serif,
+      Georgia,
+      "Times New Roman",
+      Times,
+      serif;
+}
+
+.font-sad{
+  font-family: ui-serif,
+      Georgia,
+      "Times New Roman",
+      Times,
+      serif;
+}
+
+.font-angry{
+  font-family: ui-monospace,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
 }

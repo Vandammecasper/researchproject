@@ -36,10 +36,10 @@ function Email() {
         onMouseLeave={() => setTooltipVisible(false)}
         href="mailto:caspervandamme03@gmail.com"
     >
-        <h4 className={`tertiary-color-${mood} 3xl:text-xl 3xl:mb-1`}>My e-mail address</h4>
-        <h3 className={`primary-color-${mood} font-bold text-lg 3xl:text-2xl 3xl:mb-1`}>caspervandamme03@gmail.com</h3>
+        <h4 className={`tertiary-color-${mood} 3xl:text-xl 3xl:mb-1 font-${mood}`}>My e-mail address</h4>
+        <h3 className={`header-text-color-${mood} font-bold text-lg 3xl:text-2xl 3xl:mb-1 font-${mood}`}>caspervandamme03@gmail.com</h3>
         <span
-            className={`opacity-0 bg-black text-white text-center text-xs rounded-lg py-2 px-3 absolute bottom-7 left-1/2 transform -translate-x-1/2 pointer-events-none z-50 transition-opacity duration-150 ${tooltipVisible ? 'opacity-100' : ''}`}
+            className={`opacity-0 bg-black text-white text-center text-xs rounded-lg py-2 px-3 absolute bottom-7 left-1/2 transform -translate-x-1/2 pointer-events-none z-50 transition-opacity duration-150 font-${mood} ${tooltipVisible ? 'opacity-100' : ''}`}
         >
             {tooltipText}
             <svg
