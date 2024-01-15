@@ -29,42 +29,6 @@ body {
   background-color: var(--background-color);
 }
 
-.color-sheme-neutral {
-  --background-rgb: #0F172A;
-  --header-rgb: #1E293B;
-  --text-rgb: #FFFFFF;
-  --primary-rgb: #0EA5E9;
-  --secondary-rgb: #334155;
-  --tertiary-rgb: #475569;
-}
-
-.color-sheme-happy {
-  --background-rgb: #003C6E;
-  --header-rgb: #005A96;
-  --text-rgb: #FFFFFF;
-  --primary-rgb: #00AAFF;
-  --secondary-rgb: #004985;
-  --tertiary-rgb: 71, 85, 105;
-}
-
-.color-sheme-sad {
-  --background-rgb: #1E1E1E;
-  --header-rgb: #2D2D2D;
-  --text-rgb: #FFFFFF;
-  --primary-rgb: #6495ED;
-  --secondary-rgb: 51, 65, 85;
-  --tertiary-rgb: 71, 85, 105;
-}
-
-.color-sheme-angry {
-  --background-rgb: #0A0A14;
-  --header-rgb: #C8D7FF;
-  --text-rgb: #000000;
-  --primary-rgb: #0E79B2;
-  --secondary-rgb: 51, 65, 85;
-  --tertiary-rgb: 71, 85, 105;
-}
-
 .header-background-happy{
   background: #3D52D5;
 }
@@ -236,8 +200,11 @@ body {
 }
 
 .font-angry{
-  font-family: ui-monospace,
-    "Liberation Mono",
-    "Courier New",
-    monospace;
+  font-family: ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
 }
