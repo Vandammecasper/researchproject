@@ -93,6 +93,22 @@ body {
   color: #0EA5E9;
 }
 
+.primary-background-color-happy{
+  background-color: #00BFFF;
+}
+
+.primary-background-color-sad{
+  background-color: #6495ED;
+}
+
+.primary-background-color-angry{
+  background-color: #455A64;
+}
+
+.primary-background-color-neutral{
+  background-color: #0EA5E9;
+}
+
 .border-color-happy{
   border-color: #00BFFF;
 }

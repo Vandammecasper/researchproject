@@ -29,7 +29,7 @@ export default async function Page () {
                     <div className="flex">
                         <h1 className={`xl:text-5xl text-3xl 3xl:text-6xl font-semibold primary-color-${mood} 3xl:pt-10 pl-6 lg:pl-20 xl:pt-0 lg:pt-8 font-${mood}`}>Let's work together!</h1>
                         <a href="https://www.linkedin.com/in/casper-van-damme-18a98520b/">
-                            <img className="block lg:hidden pl-3 h-9" src="/icons/linkedin.png" alt="linkedin"/>
+                            <img className="block lg:hidden pr-6 pt-1 h-9" src={`/icons/linkedin-${mood}.png`} alt="linkedin"/>
                         </a>
                     </div>
                     <h2 className={`xl:text-xl font-medium secondary-color-${mood} pt-0 3xl:text-2xl xl:pt-3 pl-6 lg:pl-20 font-${mood}`}>Web/app development & design</h2>

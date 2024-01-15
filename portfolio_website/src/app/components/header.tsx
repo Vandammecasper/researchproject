@@ -20,11 +20,14 @@ export default () => {
         </Link>
       </div>
         <div className='row-span-2 justify-self-end pt-2'>
-          <div className='grid grid-rows-3 grid-flow-col justify-items-end pr-20 gap-16'>
-            <Link className={`row-span-3 header-text-color-${mood} text-xl pt-6 font-semibold h-20 font-${mood}`} href={'/about'}>About</Link>
-            <Link className={`row-span-3 header-text-color-${mood} text-xl pt-6 font-semibold h-20 font-${mood}`} href={'/projects'}>Projects</Link>
+          <div className='grid grid-rows-4 grid-flow-col justify-items-end pr-20 gap-16'>
+            <Link className={`row-span-4 header-text-color-${mood} text-xl pt-6 font-semibold h-20 font-${mood}`} href={'/about'}>About</Link>
+            <Link className={`row-span-4 header-text-color-${mood} text-xl pt-6 font-semibold h-20 font-${mood}`} href={'/projects'}>Projects</Link>
             <div className={`border-color-${mood} border-4 mt-4 p-2 border-radius-${mood}`}>
-              <Link className={`row-span-3 header-text-color-${mood} text-xl font-semibold pt-6 font-${mood}`} href={'/contactme'}>Contact Me</Link>
+              <Link className={`row-span-4 header-text-color-${mood} text-xl font-semibold pt-6 font-${mood}`} href={'/contactme'}>Contact Me</Link>
+            </div>
+            <div className={`row-span-4 flex justify-center items-center w-14 h-14 rounded-full mt-3 primary-background-color-${mood}`}>
+              <img className="h-10" src={`/icons/mood-${mood}.png`} alt="mood icon" />
             </div>
           </div>
         </div>
