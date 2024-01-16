@@ -30,16 +30,16 @@ function Email() {
     }
   return (
     <a
-        className={`xl:ml-20 lg:ml-20 ml-6 mt-6 w-80 3xl:w-7/12 header-background-${mood} py-2 px-4 rounded relative grid justify-items-start`}
+        className={`xl:ml-20 lg:ml-20 ml-6 mt-6 w-80 3xl:w-7/12 header-background-${mood} py-2 px-4 rounded relative grid justify-items-start transition-all duration-2500`}
         onClick={() => copyToClipboard('casper.van.damme@outlook.com')}
         onMouseEnter={() => setTooltipVisible(true)}
         onMouseLeave={() => setTooltipVisible(false)}
         href="mailto:caspervandamme03@gmail.com"
     >
-        <h4 className={`tertiary-color-${mood} 3xl:text-xl 3xl:mb-1 font-${mood}`}>My e-mail address</h4>
-        <h3 className={`header-text-color-${mood} font-bold text-lg 3xl:text-2xl 3xl:mb-1 font-${mood}`}>caspervandamme03@gmail.com</h3>
+        <h4 className={`tertiary-color-${mood} 3xl:text-xl 3xl:mb-1 font-${mood} transition-all duration-2500`}>My e-mail address</h4>
+        <h3 className={`header-text-color-${mood} font-bold text-lg 3xl:text-2xl 3xl:mb-1 font-${mood} transition-all duration-2500`}>caspervandamme03@gmail.com</h3>
         <span
-            className={`opacity-0 bg-black text-white text-center text-xs rounded-lg py-2 px-3 absolute bottom-7 left-1/2 transform -translate-x-1/2 pointer-events-none z-50 transition-opacity duration-150 font-${mood} ${tooltipVisible ? 'opacity-100' : ''}`}
+            className={`opacity-0 bg-black text-white text-center text-xs rounded-lg py-2 px-3 absolute bottom-7 left-1/2 transform -translate-x-1/2 pointer-events-none z-50 transition-opacity duration-150 font-${mood} ${tooltipVisible ? 'opacity-100' : ''} transition-all duration-2500`}
         >
             {tooltipText}
             <svg

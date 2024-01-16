@@ -224,3 +224,41 @@ body {
     "Segoe UI Symbol",
     "Noto Color Emoji";
 }
+
+.toggle-container {
+  display: inline-block;
+  position: relative;
+  width: 48px;
+  height: 24px;
+  border-radius: 15px;
+  background-color: #ccc;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  top: 1.5px;
+  left: 1.5px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.toggle-container.checked {
+  background-color: #0e76a7;
+}
+
+.toggle-container.checked .slider {
+  transform: translateX(24px);
+}
+
+.body-transition {
+  transition: background-color 2.5s ease;
+}
