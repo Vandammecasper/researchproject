@@ -19,12 +19,14 @@ export default () => {
   };
 
   const handleMoodChange = (wantedMood: string) => () => {
-    setMood(wantedMood)
-    setBoxVisible(false)
-    document.body.classList.add('body-transition');
-    setTimeout(() => {
-      document.body.classList.remove('body-transition');
-    }, 2500);
+    if (isChecked == false) {
+      setMood(wantedMood)
+      setBoxVisible(false)
+      document.body.classList.add('body-transition');
+      setTimeout(() => {
+        document.body.classList.remove('body-transition');
+      }, 2500);
+    }
   }
 
   return (
