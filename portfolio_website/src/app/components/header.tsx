@@ -38,7 +38,7 @@ export default () => {
           </div>
         </Link>
         <Link href="https://www.linkedin.com/in/casper-van-damme-18a98520b/">
-          <img className="pt-9 pl-4 transition-all duration-2500" src={`/icons/linkedin-${mood}.png`} alt="linkedin icon"/>
+          <img className="pt-9 pl-4" src={`/icons/linkedin.png`} alt="linkedin icon"/>
         </Link>
       </div>
         <div className='row-span-2 justify-self-end pt-2'>
