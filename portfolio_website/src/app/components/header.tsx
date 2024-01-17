@@ -30,11 +30,11 @@ export default () => {
   }
 
   return (
-    <header className={`hidden w-100% h-24 lg:grid grid-rows-2 grid-flow-col transition-all duration-2500 header-background-${mood}`}>
+    <header className={`z-50 hidden w-full h-24 fixed lg:grid grid-rows-2 grid-flow-col transition-all duration-2500 header-background-${mood}`}>
       <div className='row-span-2 w-5/6 flex'>
         <Link href={'/'}>
           <div className=''>
-            <h1 className={`header-text-color-${mood} text-2xl pt-8 pl-20 font-bold font-${mood} transition-all duration-2500`}>Casper Van Damme</h1>
+            <h1 className={`header-text-color-${mood} text-2xl pt-8 pl-10 xl:pl-20 font-bold font-${mood} transition-all duration-2500`}>Casper Van Damme</h1>
           </div>
         </Link>
         <Link href="https://www.linkedin.com/in/casper-van-damme-18a98520b/">

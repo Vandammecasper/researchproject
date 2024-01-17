@@ -19,8 +19,8 @@ export default function Page() {
     }, [mood]);
 
     return(
-        <main className="overflow-hidden px-8 lg:px-16 pb-24 lg:pb-16">
-                <h1 className={`lg:text-5xl text-3xl font-medium primary-color-${mood} pt-6 lg:pt-16 font-${mood} transition-all duration-2500`}>projects()</h1>
+        <main className="overflow-hidden px-8 lg:px-10 xl:px-20 pb-24 lg:pb-16">
+                <h1 className={`lg:text-5xl text-3xl font-medium primary-color-${mood} pt-6 lg:pt-32 font-${mood} transition-all duration-2500`}>projects()</h1>
                 <div className="grid lg:grid-rows-2 lg:grid-flow-col pt-8 lg:pt-16 gap-0 lg:gap-16">
                     <div className={`row-span-2 border-color-${mood} border-4 border-radius-${mood} mb-32 lg:mb-8 transition-all duration-2500`}>
                         <Image className="px-8 pt-4" src={ccpic} alt='cashcarpicture'/>

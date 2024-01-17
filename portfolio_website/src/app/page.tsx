@@ -4,6 +4,7 @@ import Logo from './components/logo'
 import './globals.css'
 import {useAtom} from 'jotai'
 import { moodAtom } from '../../jodai'
+import CameraCapture from './components/cameraCapture'
 
 export default function Page () {
 
@@ -18,7 +19,8 @@ export default function Page () {
 
     return(
         <main>
-            <div className="w-screen h-90% grid lg:grid-rows-2 lg:grid-flow-col lg:gap-80 justify-items-center lg:pt-28">
+            <CameraCapture/>
+            <div className="w-screen h-90% grid lg:grid-rows-2 lg:grid-flow-col lg:gap-80 justify-items-center lg:pt-52">
                 <div className="block md:hidden w-80 pt-6">
                 <Logo/>
                 </div>

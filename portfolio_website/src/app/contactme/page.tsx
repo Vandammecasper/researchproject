@@ -18,7 +18,7 @@ export default function Page () {
 
     return(
         <main className="mb-24 lg:mb-0">
-            <div className="w-screen h-100% grid lg:grid-rows-2 lg:grid-flow-col xl:gap-24 maxlg:justify-items-center lg:pt-28 overflow-auto">
+            <div className="w-screen h-100% grid lg:grid-rows-2 lg:grid-flow-col xl:gap-24 maxlg:justify-items-center lg:pt-52 overflow-auto">
                 <div className="block md:hidden lg:hidden w-80">
                     <Logo/>
                 </div>
