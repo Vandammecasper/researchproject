@@ -14,7 +14,7 @@
 }
 
 .happy {
-  --background-color: #FFFFFF;
+  --background-color: #e8e8e8;
 }
 
 .sad {
@@ -22,7 +22,7 @@
 }
 
 .angry {
-  --background-color: #68CDF7;
+  --background-color: #0A369D;
 }
 
 body {
@@ -54,7 +54,7 @@ body {
 }
 
 .text-color-angry{
-  color: #1E2019;
+  color: #FFFFFF;
 }
 
 .text-color-neutral{
@@ -86,7 +86,7 @@ body {
 }
 
 .primary-color-angry{
-  color: #0A369D;
+  color: #68CDF7;
 }
 
 .primary-color-neutral{
@@ -102,7 +102,7 @@ body {
 }
 
 .primary-background-color-angry{
-  background-color: #0A369D;
+  background-color: #68CDF7;
 }
 
 .primary-background-color-neutral{
@@ -118,7 +118,7 @@ body {
 }
 
 .border-color-angry{
-  border-color: #0A369D;
+  border-color: #68CDF7;
 }
 
 .border-color-neutral{
@@ -261,4 +261,9 @@ body {
 
 .body-transition {
   transition: background-color 2.5s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.75s ease-in-out;
 }

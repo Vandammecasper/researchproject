@@ -1,17 +1,21 @@
 'use client'
 import Link from "next/link";
 import {useAtom} from 'jotai'
-import { moodAtom } from '../../../jodai'
+import { moodAtom, recognitionAtom } from '../../../jodai'
 import { useState } from "react";
 
 export default () => {
 
   const [mood, setMood] = useAtom(moodAtom)
-  const [isChecked, setIsChecked] = useState(false);
+  const [recognition, setRecognition] = useAtom(recognitionAtom)
   const [isBoxVisible, setBoxVisible] = useState(false);
 
   const handleToggle = () => {
-    setIsChecked(!isChecked);
+    setRecognition(!recognition);
+    if(recognition == false){
+      console.log('recognition is true')
+      setBoxVisible(false)
+    }
   };
 
   const handleCircleClick = () => {
@@ -19,7 +23,7 @@ export default () => {
   };
 
   const handleMoodChange = (wantedMood: string) => () => {
-    if (isChecked == false) {
+    if (recognition == false) {
       setMood(wantedMood)
       setBoxVisible(false)
       document.body.classList.add('body-transition');
@@ -30,7 +34,7 @@ export default () => {
   }
 
   return (
-    <header className={`z-50 hidden w-full h-24 fixed lg:grid grid-rows-2 grid-flow-col transition-all duration-2500 header-background-${mood}`}>
+    <header className={`z-20 hidden w-full h-24 fixed lg:grid grid-rows-2 grid-flow-col transition-all duration-2500 header-background-${mood}`}>
       <div className='row-span-2 w-5/6 flex'>
         <Link href={'/'}>
           <div className=''>
@@ -65,25 +69,25 @@ export default () => {
               >
                 <div>
                   <div>Recognition</div>
-                  <button onClick={handleMoodChange('happy')} className={`${isChecked ? 'opacity-50' : 'opacity-100'} ${isChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Happy</button>
-                  <button onClick={handleMoodChange('neutral')} className={`${isChecked ? 'opacity-50' : 'opacity-100'} ${isChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Neutral</button>
-                  <button onClick={handleMoodChange('sad')} className={`${isChecked ? 'opacity-50' : 'opacity-100'} ${isChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Sad</button>
-                  <button onClick={handleMoodChange('angry')} className={`${isChecked ? 'opacity-50' : 'opacity-100'} ${isChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Angry</button>
+                  <button onClick={handleMoodChange('happy')} className={`${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Happy</button>
+                  <button onClick={handleMoodChange('neutral')} className={`${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Neutral</button>
+                  <button onClick={handleMoodChange('sad')} className={`${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Sad</button>
+                  <button onClick={handleMoodChange('angry')} className={`${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Angry</button>
                 </div>
                 <div>
-                  <label className={`toggle-container ${isChecked ? 'checked' : ''}`}>
+                  <label className={`toggle-container ${recognition ? 'checked' : ''}`}>
                     <input
                       type="checkbox"
-                      checked={isChecked}
+                      checked={recognition}
                       onChange={handleToggle}
                       className="hidden-input"
                     />
                     <div className="slider" />
                   </label>
-                  <img onClick={handleMoodChange('happy')} className={`h-5 pl-3 ${isChecked ? 'opacity-50' : 'opacity-100'} ${isChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-happy.png" alt="" />
-                  <img onClick={handleMoodChange('neutral')} className={`h-5 pl-3 mt-1 ${isChecked ? 'opacity-50' : 'opacity-100'} ${isChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-neutral.png" alt="" />
-                  <img onClick={handleMoodChange('sad')} className={`h-5 pl-3 mt-1 ${isChecked ? 'opacity-50' : 'opacity-100'} ${isChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-sad.png" alt="" />
-                  <img onClick={handleMoodChange('angry')} className={`h-5 pl-3 mt-1 ${isChecked ? 'opacity-50' : 'opacity-100'} ${isChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-angry.png" alt="" />
+                  <img onClick={handleMoodChange('happy')} className={`h-5 pl-3 ${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-happy.png" alt="" />
+                  <img onClick={handleMoodChange('neutral')} className={`h-5 pl-3 mt-1 ${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-neutral.png" alt="" />
+                  <img onClick={handleMoodChange('sad')} className={`h-5 pl-3 mt-1 ${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-sad.png" alt="" />
+                  <img onClick={handleMoodChange('angry')} className={`h-5 pl-3 mt-1 ${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-angry.png" alt="" />
                 </div>
               </div>
             </div>
