@@ -9,6 +9,7 @@ export default () => {
   const [mood, setMood] = useAtom(moodAtom)
   const [recognition, setRecognition] = useAtom(recognitionAtom)
   const [isBoxVisible, setBoxVisible] = useState(false);
+  const [hover, setHover] = useState(false);
 
   const handleToggle = () => {
     setRecognition(!recognition);
@@ -20,6 +21,7 @@ export default () => {
 
   const handleCircleClick = () => {
     setBoxVisible(!isBoxVisible);
+    setHover(false)
   };
 
   const handleMoodChange = (wantedMood: string) => () => {
@@ -56,9 +58,12 @@ export default () => {
               <button
                 className={`flex justify-center items-center w-14 h-14 rounded-full mt-3 primary-background-color-${mood} transition-all duration-2500`}
                 onClick={handleCircleClick}
+                onMouseEnter={() => {if(recognition == false && isBoxVisible == false){setHover(true)}}}
+                onMouseLeave={() => setHover(false)}
               >
                 <img className="h-10 transition-all duration-2500" src={`/icons/mood-${mood}.png`} alt="mood icon" />
               </button>
+              {hover && (<div className={`bg-white text-black p-2 text-right fixed right-12 top-20 w-48 font-semibold border-radius-${mood}`}>Click to change recognition settings!</div>)}
               <div
                 className={`fixed right-20 mt-2 grid grid-cols-2 border-radius-${mood} gap-12 w-40 p-2 bg-white transition-all duration-300 ${
                   isBoxVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'

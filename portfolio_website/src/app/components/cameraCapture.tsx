@@ -3,19 +3,21 @@ import Webcam from 'react-webcam';
 import axios from 'axios';
 import { useAtom } from 'jotai';
 import { cameraPreferencesAtom, moodAtom, recognitionAtom, showMessageAtom } from '../../../jodai';
-import {REACT_APP_AZURE_FACE_API_ENDPOINT} from '../../../envFile';
-import {REACT_APP_AZURE_FACE_API_KEY} from '../../../envFile';
-
+import {SKY_BIOMETRY_API_SECRET} from '../../../envFile';
+import {SKY_BIOMETRY_API_KEY} from '../../../envFile';
+import fs from 'fs';
 
 const CameraCapture = () => {
-  const [binaryImageData, setBinaryImageData] = useState('');
   const webcamRef = React.useRef(null);
-  const [imgSrc, setImgSrc] = React.useState(null);
+  const [imgSrc, setImgSrc] = React.useState('');
   const [isCameraOpen, setIsCameraOpen] = useState(true);
   const [mood, setMood] = useAtom(moodAtom)
   const [cameraPreferences, SetCameraPreferences] = useAtom(cameraPreferencesAtom)
   const [showMessage, setShowMessage] = useAtom(showMessageAtom);
   const [recognition, setRecognition] = useAtom(recognitionAtom);
+  const [imgUrl, setImgUrl] = useState('');
+  const apiSecret = SKY_BIOMETRY_API_SECRET;
+  const apiKey = SKY_BIOMETRY_API_KEY;
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -25,62 +27,68 @@ const CameraCapture = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      capture();
-    }, 1000);
+      fetchData();
+    }, 2000);
 
     const fetchData = async () => {
       console.log('capturing...');
       capture();
     };
-
-    fetchData();
-  }, [!showMessage]);
+  }, []);
 
   useEffect(() => {
-    if (imgSrc != null) {
+    if (imgSrc != '') {
       setIsCameraOpen(false);
       console.log('camera closed')
-      setBinaryImageData(convertImageToBinary(imgSrc));
       analyzeEmotion();
     }
   }, [imgSrc]);
 
-  const convertImageToBinary = (imageSrc:string) => {
-    console.log('Converting image to binary...')
-    const base64String = imageSrc.split(',')[1];
-    console.log('Base64 String:', base64String)
-    return atob(base64String);
-  };
-
   const analyzeEmotion = async () => {
-    try {
-      const endpoint = REACT_APP_AZURE_FACE_API_ENDPOINT;
-      const subscriptionKey = REACT_APP_AZURE_FACE_API_KEY;
+  try {
+    let data = new FormData();
 
-      console.log('Endpoint:', endpoint);
-      console.log('Key:', subscriptionKey);
+    data.append('images', imgSrc);
 
-      const response = await axios.post(
-        `${endpoint}face/v1.0/detect?returnFaceAttributes=emotion`,
-        binaryImageData,
-        {
-          headers: {
-            'Content-Type': 'application/octet-stream',
-            'Ocp-Apim-Subscription-Key': subscriptionKey,
-          },
-        }
-      );
+    data.append('api_key', apiKey);
 
-      // Extract emotion data from the response
-      const emotions = response.data[0]?.faceAttributes?.emotion;
-      console.log('Emotion Data:', emotions);
-    } catch (error) {
-      console.error('Error analyzing emotion:', error);
-    }
-  };
+    data.append('api_secret', apiSecret);
+
+
+    let config = {
+
+      method: 'post',
+
+      maxBodyLength: Infinity,
+
+      url: 'https://api.skybiometry.com/fc/faces/detect.json',
+
+      headers: {
+
+        'content-type' : 'multipart/form-data'
+
+      },
+
+      data : data
+
+    };
+
+
+    axios.request(config)
+
+    .then((response) => {
+
+      console.log(JSON.stringify(response.data));
+
+})
+  } catch (error) {
+    console.error('Error analyzing emotion:', error);
+  }
+};
+
 
   return (
-    <div className='fixed transition-all duration-2500'>
+    <div className='fixed transition-all duration-2500 z-0'>
       {isCameraOpen && (
         <Webcam
           audio={false}

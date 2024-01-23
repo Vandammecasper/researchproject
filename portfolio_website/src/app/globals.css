@@ -29,6 +29,23 @@ body {
   background-color: var(--background-color);
 }
 
+.background-neutral {
+  background: #0F172A;
+}
+
+.background-happy {
+  background: #e8e8e8;
+}
+
+.background-sad {
+  background: #1E1E1E;
+}
+
+.background-angry {
+  background: #0A369D;
+}
+
+
 .header-background-happy{
   background: #3D52D5;
 }

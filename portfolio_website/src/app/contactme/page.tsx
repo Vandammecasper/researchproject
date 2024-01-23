@@ -1,13 +1,37 @@
 'use client'
 import Logo from "../components/logo";
 import Email from "../components/email";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
-import { moodAtom } from "../../../jodai";
+import { moodAtom, recognitionAtom } from "../../../jodai";
 
 export default function Page () {
-
     const [mood, setMood] = useAtom(moodAtom)
+    const [recognition, setRecognition] = useAtom(recognitionAtom)
+    const [isBoxVisible, setBoxVisible] = useState(false);
+
+    const handleToggle = () => {
+        setRecognition(!recognition);
+        if(recognition == false){
+        console.log('recognition is true')
+        setBoxVisible(false)
+        }
+    };
+
+    const handleCircleClick = () => {
+        setBoxVisible(!isBoxVisible);
+    };
+
+    const handleMoodChange = (wantedMood: string) => () => {
+        if (recognition == false) {
+        setMood(wantedMood)
+        setBoxVisible(false)
+        document.body.classList.add('body-transition');
+        setTimeout(() => {
+            document.body.classList.remove('body-transition');
+        }, 2500);
+        }
+    }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -18,6 +42,43 @@ export default function Page () {
 
     return(
         <main className="mb-24 lg:mb-0">
+            <button
+                className={`flex fixed lg:hidden top-4 sm:top-8 right-4 sm:right-6 z-50 justify-center items-center w-14 h-14 rounded-full primary-background-color-${mood} transition-all duration-2500`}
+                onClick={handleCircleClick}
+              >
+                <img className="h-10 transition-all duration-2500" src={`/icons/mood-${mood}.png`} alt="mood icon" />
+              </button>
+              <div
+                className={`fixed right-6 lg:right-20 mt-24 z-50 lg:mt-2 grid grid-cols-2 border-radius-${mood} gap-12 w-40 p-2 bg-white transition-all duration-300 ${
+                  isBoxVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                } transition-all duration-2500`}
+                style={{
+                  transform: isBoxVisible ? 'translateY(4%)' : 'translateY(0)',
+                }}
+              >
+                <div>
+                  <div>Recognition</div>
+                  <button onClick={handleMoodChange('happy')} className={`${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Happy</button>
+                  <button onClick={handleMoodChange('neutral')} className={`${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Neutral</button>
+                  <button onClick={handleMoodChange('sad')} className={`${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Sad</button>
+                  <button onClick={handleMoodChange('angry')} className={`${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`}>Angry</button>
+                </div>
+                <div>
+                  <label className={`toggle-container ${recognition ? 'checked' : ''}`}>
+                    <input
+                      type="checkbox"
+                      checked={recognition}
+                      onChange={handleToggle}
+                      className="hidden-input"
+                    />
+                    <div className="slider" />
+                  </label>
+                  <img onClick={handleMoodChange('happy')} className={`h-5 pl-3 ${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-happy.png" alt="" />
+                  <img onClick={handleMoodChange('neutral')} className={`h-5 pl-3 mt-1 ${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-neutral.png" alt="" />
+                  <img onClick={handleMoodChange('sad')} className={`h-5 pl-3 mt-1 ${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-sad.png" alt="" />
+                  <img onClick={handleMoodChange('angry')} className={`h-5 pl-3 mt-1 ${recognition ? 'opacity-50' : 'opacity-100'} ${recognition ? 'cursor-not-allowed' : 'cursor-pointer'}`} src="/icons/smiley-angry.png" alt="" />
+                </div>
+              </div>
             <div className="w-screen h-100% grid lg:grid-rows-2 lg:grid-flow-col xl:gap-24 maxlg:justify-items-center lg:pt-52 overflow-auto">
                 <div className="block md:hidden lg:hidden w-80">
                     <Logo/>
