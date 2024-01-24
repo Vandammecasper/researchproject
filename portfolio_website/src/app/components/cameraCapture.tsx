@@ -48,11 +48,13 @@ const CameraCapture = () => {
   try {
     let data = new FormData();
 
-    data.append('images', imgSrc);
+    data.append('urls', imgSrc);
 
     data.append('api_key', apiKey);
 
     data.append('api_secret', apiSecret);
+
+    data.append('attributes', 'mood')
 
 
     let config = {
@@ -73,17 +75,26 @@ const CameraCapture = () => {
 
     };
 
+    let feeling
+
 
     axios.request(config)
 
     .then((response) => {
-
-      console.log(JSON.stringify(response.data));
-
+      console.log('response:', response)
+      console.log('mood:', response.data.photos[0].tags[0].attributes.mood.value)
+      feeling = response.data.photos[0].tags[0].attributes.mood.value
+      if (feeling == 'happy' || feeling == 'neutral' || feeling == 'sad' || feeling == 'angry') {
+        setMood(feeling)
+      }
+      else {
+        setMood('neutral')
+      }
 })
   } catch (error) {
     console.error('Error analyzing emotion:', error);
   }
+
 };
 
 
