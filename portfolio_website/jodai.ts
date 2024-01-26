@@ -7,3 +7,5 @@ export const cameraPreferencesAtom = atom('')
 export const showMessageAtom = atom(false)
 
 export const recognitionAtom = atom(true)
+
+export const hoverAtom = atom(false)

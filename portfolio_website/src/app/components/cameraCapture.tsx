@@ -34,7 +34,7 @@ const CameraCapture = () => {
       console.log('capturing...');
       capture();
     };
-  }, []);
+  }, [!showMessage]);
 
   useEffect(() => {
     if (imgSrc != '') {
